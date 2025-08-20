@@ -77,87 +77,85 @@ document.addEventListener('DOMContentLoaded', () => {
 <nav class="fixed top-0 w-full bg-black/60 backdrop-blur-md z-50">
   <div class="max-w-6xl mx-auto px-6 flex justify-between items-center h-16">
     <div class="text-xl font-bold text-white">Gulab Seva Foundation</div>
-    <div class="hidden md:flex gap-4 items-center">
-      <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-pink-500 to-purple-500 text-white">Instagram</a>
-      <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="social-btn bg-gradient-to-r from-green-400 to-teal-500 text-white">WhatsApp</a>
-      <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-blue-500 to-indigo-500 text-white">Facebook</a>
-      <a href="https://forms.gle/JFB8wGcPE64qLyzi9" target="_blank" class="social-btn bg-gradient-to-r from-teal-400 to-green-500 text-white">Join Now</a>
-    </div>
     <div class="md:hidden flex items-center">
       <button id="mobileMenuBtn" class="text-white text-2xl">&#9776;</button>
     </div>
   </div>
   <div id="mobileMenu" class="hidden md:hidden bg-black/80 backdrop-blur-md flex flex-col gap-2 px-6 py-4">
-    <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-pink-500 to-purple-500 text-white">Instagram</a>
-    <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="social-btn bg-gradient-to-r from-green-400 to-teal-500 text-white">WhatsApp</a>
-    <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-blue-500 to-indigo-500 text-white">Facebook</a>
-    <a href="https://forms.gle/JFB8wGcPE64qLyzi9" target="_blank" class="social-btn bg-gradient-to-r from-teal-400 to-green-500 text-white">Join Now</a>
+    <a href="#home" class="social-btn bg-gradient-to-r from-teal-400 to-green-500 text-white">Home</a>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden hero-bg">
+<section class="h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden hero-bg" id="home">
   <div id="particles-js" class="absolute inset-0 -z-20"></div>
   <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up">Welcome to Gulab Seva Foundation</h1>
   <p class="text-lg md:text-2xl mb-8 text-gray-200" data-aos="fade-up" data-aos-delay="200">
     A Registered Charitable Trust building a new India where everyone receives a home, job, education, and dignity.
   </p>
-  <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-8 animate-pulse" data-aos="zoom-in" data-aos-delay="400">
-    <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-pink-500 to-purple-500 text-white">Instagram</a>
-    <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="social-btn bg-gradient-to-r from-green-400 to-teal-500 text-white">WhatsApp</a>
-    <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-blue-500 to-indigo-500 text-white">Facebook</a>
-    <a href="https://forms.gle/JFB8wGcPE64qLyzi9" target="_blank" class="social-btn bg-gradient-to-r from-teal-400 to-green-500 text-white">Join Now</a>
-  </div>
 </section>
 
 <!-- About / Mission / Vision / Programs -->
-<section class="py-16 px-6 max-w-6xl mx-auto">
-  <h2 class="section-title text-center" data-aos="fade-right">About Gulab Seva Foundation</h2>
-  <p class="section-text text-center" data-aos="fade-left" data-aos-delay="100">
+<section class="py-16 px-6 max-w-6xl mx-auto text-center">
+  <!-- About -->
+  <h2 class="section-title mx-auto bg-gradient-to-r from-teal-400 to-green-500 inline-block" data-aos="fade-right">About Gulab Seva Foundation</h2>
+  <p class="section-text mx-auto max-w-3xl mt-4" data-aos="fade-left" data-aos-delay="100">
     Gulab Seva Foundation is a movement dedicated to bringing hope, dignity, and opportunity to every life. We believe no one should be left behind.
   </p>
 
-  <h2 class="section-title mt-12" data-aos="fade-right" data-aos-delay="200">Our Promise</h2>
-  <p class="section-text text-center" data-aos="fade-left" data-aos-delay="300">
+  <!-- Promise -->
+  <h2 class="section-title mx-auto mt-12 bg-gradient-to-r from-teal-400 to-green-500 inline-block" data-aos="fade-right" data-aos-delay="200">Our Promise</h2>
+  <p class="section-text mx-auto max-w-3xl mt-4" data-aos="fade-left" data-aos-delay="300">
     No fees, no donations — complete transparency.<br>
     Equal care and opportunities for all.<br>
     Priority access to programs through GSF ID.
   </p>
 
-  <h2 class="section-title mt-12" data-aos="fade-right" data-aos-delay="400">Mission & Vision</h2>
-  <p class="section-text" data-aos="fade-left" data-aos-delay="500">
-    We aim to build an India where everyone has a home, every child gets education, every elder is respected, deserving youth get employment, and vulnerable individuals receive care. Our vision is a society free of hunger, homelessness, and helplessness, where humanity is the greatest strength.
+  <!-- Mission & Vision -->
+  <h2 class="section-title mx-auto mt-12 bg-gradient-to-r from-teal-400 to-green-500 inline-block" data-aos="fade-right" data-aos-delay="400">Mission & Vision</h2>
+  <p class="section-text mx-auto max-w-3xl mt-4" data-aos="fade-left" data-aos-delay="500">
+    We aim to build an India where everyone has a home, every child gets education, every elder is respected, deserving youth get employment, and vulnerable individuals receive care. 
+    <br>Our vision is a society free of hunger, homelessness, and helplessness, where humanity is the greatest strength.
   </p>
 
-  <h2 class="section-title mt-12" data-aos="fade-right" data-aos-delay="600">Programs & Opportunities</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-    <div class="mission-item" data-aos="fade-up" data-aos-delay="100">
+  <!-- Programs & Opportunities -->
+  <h2 class="section-title mx-auto mt-12 bg-gradient-to-r from-teal-400 to-green-500 inline-block" data-aos="fade-right" data-aos-delay="600">Programs & Opportunities</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 justify-items-center">
+    <div class="mission-item w-full md:w-80" data-aos="fade-up" data-aos-delay="100">
       <div class="text-teal-400 text-4xl mb-4">🏠</div>
       <h3 class="text-xl font-bold mb-2">Safe Homes</h3>
       <p>Providing shelter for orphans, elderly, and those in need at our GSF campuses.</p>
     </div>
-    <div class="mission-item" data-aos="fade-up" data-aos-delay="200">
+    <div class="mission-item w-full md:w-80" data-aos="fade-up" data-aos-delay="200">
       <div class="text-green-400 text-4xl mb-4">🎓</div>
       <h3 class="text-xl font-bold mb-2">Education</h3>
       <p>Quality education, vocational training, and skill development at GSF schools.</p>
     </div>
-    <div class="mission-item" data-aos="fade-up" data-aos-delay="300">
+    <div class="mission-item w-full md:w-80" data-aos="fade-up" data-aos-delay="300">
       <div class="text-blue-400 text-4xl mb-4">💊</div>
       <h3 class="text-xl font-bold mb-2">Healthcare</h3>
       <p>Medical facilities, free health checkups, and hospitals at our campuses.</p>
     </div>
-    <div class="mission-item" data-aos="fade-up" data-aos-delay="400">
+    <div class="mission-item w-full md:w-80" data-aos="fade-up" data-aos-delay="400">
       <div class="text-purple-400 text-4xl mb-4">💼</div>
       <h3 class="text-xl font-bold mb-2">Employment</h3>
       <p>Sustainable jobs and livelihood opportunities at our GSF centers.</p>
     </div>
-    <div class="mission-item" data-aos="fade-up" data-aos-delay="500">
+    <div class="mission-item w-full md:w-80" data-aos="fade-up" data-aos-delay="500">
       <div class="text-pink-400 text-4xl mb-4">🌍</div>
       <h3 class="text-xl font-bold mb-2">Community</h3>
       <p>Building a network of supporters, followers, and volunteers worldwide.</p>
     </div>
   </div>
 </section>
+
+<!-- Floating Bottom Bar with Social + Join -->
+<div class="fixed bottom-0 w-full flex justify-center gap-4 py-4 bg-black/60 backdrop-blur-md z-50 animate-fade-in">
+  <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-pink-500 to-purple-500 text-white">Instagram</a>
+  <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="social-btn bg-gradient-to-r from-green-400 to-teal-500 text-white">WhatsApp</a>
+  <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="social-btn bg-gradient-to-r from-blue-500 to-indigo-500 text-white">Facebook</a>
+  <a href="https://forms.gle/JFB8wGcPE64qLyzi9" target="_blank" class="social-btn bg-gradient-to-r from-teal-400 to-green-500 text-white">Join Now</a>
+</div>
 
 <!-- Footer -->
 <footer class="py-6 text-center border-t border-gray-700 mt-12">
