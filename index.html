@@ -1,236 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gulab Seva Foundation</title>
-
-<!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- AOS Library -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<style>
-body { background-color: #000; color: #F6F6F6; scroll-behavior: smooth; }
-
-/* Gradient Hero Background */
-.hero-bg { 
-  background: linear-gradient(270deg, #FF9933, #006400, #8B0000); 
-  background-size: 600% 600%; 
-  animation: gradientShift 25s ease infinite; 
-  position: relative; 
-}
-@keyframes gradientShift {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
-
-/* Glass cards */
-.glass-card { 
-  background: rgba(0,0,0,0.6); 
-  backdrop-filter: blur(10px); 
-  border-radius: 1rem; 
-  padding: 2rem; 
-  transition: transform 0.3s, box-shadow 0.3s; 
-  text-align:center;
-}
-.glass-card:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(255,153,51,0.6); }
-
-/* Buttons */
-.gradient-btn { 
-  background: linear-gradient(90deg, #FF9933, #006400); 
-  padding: 0.8rem 2rem; 
-  border-radius: 0.75rem; 
-  font-weight: bold; 
-  transition: transform 0.3s, box-shadow 0.3s; 
-  text-center;
-}
-.gradient-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px #FF9933, 0 0 40px #006400; }
-
-/* Section titles */
-.section-title { 
-  font-size: 2.25rem; 
-  font-weight: bold; 
-  background: linear-gradient(to right, #FF9933, #8B0000, #006400); 
-  -webkit-background-clip: text; 
-  color: transparent; 
-  margin-bottom: 1rem; 
-  text-align:center;
-}
-
-/* Floating social bar */
-#floatingBar { 
-  backdrop-filter: blur(10px); 
-  background: rgba(0,0,0,0.7); 
-  border-radius: 1rem; 
-  padding: 1rem; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.5rem; 
-  position: fixed; 
-  bottom: 2rem; 
-  right: 2rem; 
-  opacity: 0; 
-  transition: opacity 1s; 
-  z-index: 50; 
-}
-
-/* Particle canvas */
-#particles-js { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-10; }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => { AOS.init({ duration: 1000, once: false, offset: 100 }); });
-</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulab Seva Foundation</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Floating Button Style */
+    .fab-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    .fab-button {
+      background: #ff4b5c;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .fab-button:hover {
+      background: #ff1e3c;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    .fab-options {
+      display: none;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+    .fab-options a {
+      margin-bottom: 10px;
+      background: #1e293b;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+    .fab-options a:hover {
+      background: #334155;
+    }
+    .fab-container.active .fab-options {
+      display: flex;
+    }
+  </style>
 </head>
+<body class="bg-gray-900 text-white">
 
-<body class="relative overflow-x-hidden">
-
-<!-- Logo -->
-<div class="flex justify-center mt-6">
-  <img src="assets/images/logo.png" alt="Gulab Seva Foundation Logo" class="h-24 w-auto">
-</div>
-
-<!-- Navbar -->
-<nav class="fixed top-0 w-full bg-black/70 backdrop-blur-md z-50 mt-24">
-  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 h-16">
-    <div class="text-xl font-bold text-white">Gulab Seva Foundation</div>
-    <div class="hidden md:flex gap-3 items-center">
-      <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm md:text-base min-w-[100px]">Instagram</a>
-      <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm md:text-base min-w-[100px]">WhatsApp</a>
-      <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm md:text-base min-w-[100px]">Facebook</a>
-      <button id="navJoinBtn" class="gradient-btn text-white px-4 py-2 text-sm md:text-base min-w-[100px]">Join Now</button>
+  <!-- Navbar -->
+  <nav class="bg-gray-800 p-4 flex justify-between items-center">
+    <div class="text-xl font-bold">🌸 Gulab Seva Foundation</div>
+    <div class="space-x-4">
+      <a href="index.html" class="hover:text-pink-400">Home</a>
+      <a href="education.html" class="hover:text-pink-400">Education</a>
+      <a href="shelters.html" class="hover:text-pink-400">Shelters</a>
+      <a href="contact.html" class="hover:text-pink-400">Contact</a>
     </div>
-    <div class="md:hidden flex items-center">
-      <button id="mobileMenuBtn" class="text-white text-2xl">&#9776;</button>
-    </div>
-  </div>
-  <div id="mobileMenu" class="hidden md:hidden bg-black/80 backdrop-blur-md flex flex-col gap-2 px-6 py-4">
-    <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm min-w-[100px]">Instagram</a>
-    <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm min-w-[100px]">WhatsApp</a>
-    <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white px-4 py-2 text-sm min-w-[100px]">Facebook</a>
-    <button id="mobileJoinBtn" class="gradient-btn text-white px-4 py-2 text-sm min-w-[100px]">Join Now</button>
-  </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6 hero-bg relative overflow-hidden">
-  <div id="particles-js"></div>
-  <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up">Welcome to Gulab Seva Foundation</h1>
-  <p class="text-lg md:text-2xl mb-8 text-white" data-aos="fade-up" data-aos-delay="200">
-    Building a new India where everyone receives a job, home, education, and dignity.
-  </p>
-  <div class="flex flex-col md:flex-row gap-6 justify-center mt-8" data-aos="zoom-in" data-aos-delay="400">
-    <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white">Instagram</a>
-    <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="gradient-btn text-white">WhatsApp</a>
-    <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white">Facebook</a>
-  </div>
-  <div class="mt-8" data-aos="fade-up" data-aos-delay="500">
-    <button id="openFormBtn" class="gradient-btn text-white">Join Now</button>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <section class="text-center py-12">
+    <img src="assets/images/GSFlogo.png" alt="Gulab Seva Foundation Logo" class="mx-auto mb-6 w-40 h-40">
+    <h1 class="text-4xl font-bold">Welcome to the Gulab Seva Foundation</h1>
+    <p class="text-gray-300 mt-4 max-w-2xl mx-auto">
+      Together, we dream of a world where no one is left without food, shelter, education, and care.  
+      Be part of our journey to make this vision real.
+    </p>
+  </section>
 
-<!-- Programs Section -->
-<section class="py-16 px-6 max-w-6xl mx-auto">
-  <h2 class="section-title text-center" data-aos="fade-up">Our Programs & Opportunities</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-    <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="text-4xl mb-4">🏠</div>
-      <h3 class="text-xl font-bold mb-2">Free Shelter</h3>
-      <p class="text-white">Safe homes at GSF campuses including old age homes and shelters for families and orphans.</p>
-    </div>
-    
-    <!-- Education card clickable -->
+  <!-- Example Program Cards -->
+  <section class="grid md:grid-cols-2 gap-6 px-6 py-10">
     <a href="education.html">
-      <div class="glass-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="glass-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-pink-500 transition">
         <div class="text-4xl mb-4">🎓</div>
         <h3 class="text-xl font-bold mb-2">Education</h3>
-        <p class="text-gray-200">Click to see education photos & programs.</p>
+        <p class="text-gray-200">Schools and vocational training centers providing quality education to children and youth.</p>
       </div>
     </a>
-    
-    <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="text-4xl mb-4">💊</div>
-      <h3 class="text-xl font-bold mb-2">Healthcare</h3>
-      <p class="text-white">Hospitals and medical camps offering free healthcare and checkups.</p>
+
+    <a href="shelters.html">
+      <div class="glass-card bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-pink-500 transition">
+        <div class="text-4xl mb-4">🏠</div>
+        <h3 class="text-xl font-bold mb-2">Free Shelters</h3>
+        <p class="text-gray-200">Safe homes for homeless individuals, orphans, and the elderly.</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-center py-6 mt-10">
+    <p class="text-gray-400">© 2025 Gulab Seva Foundation. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating Join Now Button -->
+  <div class="fab-container" id="fab">
+    <div class="fab-options">
+      <a href="https://facebook.com" target="_blank">📘</a>
+      <a href="https://instagram.com" target="_blank">📷</a>
+      <a href="https://whatsapp.com" target="_blank">💬</a>
+      <a href="register.html">🌸</a>
     </div>
-    
-    <div class="glass-card" data-aos="fade-up" data-aos-delay="400">
-      <div class="text-4xl mb-4">💼</div>
-      <h3 class="text-xl font-bold mb-2">Employment</h3>
-      <p class="text-white">Sustainable jobs and livelihood opportunities in our campuses.</p>
-    </div>
-    
-    <div class="glass-card" data-aos="fade-up" data-aos-delay="500">
-      <div class="text-4xl mb-4">🍲</div>
-      <h3 class="text-xl font-bold mb-2">Food & Care</h3>
-      <p class="text-white">Free meals, food centers, and essential support for the underserved.</p>
-    </div>
+    <div class="fab-button">Join</div>
   </div>
-</section>
 
-<!-- Join / Registration Modal -->
-<div id="formModal" class="fixed inset-0 bg-black/80 flex justify-center items-center hidden z-50">
-  <div class="bg-black/90 rounded-xl max-w-3xl w-full p-6 relative text-white shadow-2xl">
-    <button id="closeFormBtn" class="absolute top-4 right-4 text-white text-2xl font-bold">&times;</button>
-    <h2 class="text-2xl font-bold mb-4">Register for your GSF ID</h2>
-    <iframe src="https://forms.gle/JFB8wGcPE64qLyzi9" width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-  </div>
-</div>
-
-<!-- Floating Social & Join -->
-<div id="floatingBar">
-  <a href="https://instagram.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white">Instagram</a>
-  <a href="https://whatsapp.com/channel/0029VbAqhEcHgZWdrnsEjy0C" target="_blank" class="gradient-btn text-white">WhatsApp</a>
-  <a href="https://facebook.com/gulabsevafoundation" target="_blank" class="gradient-btn text-white">Facebook</a>
-  <button id="floatingJoinBtn" class="gradient-btn text-white">Join Now</button>
-</div>
-
-<!-- Footer -->
-<footer class="py-6 text-center border-t border-gray-700 mt-12">
-  <p>© 2025 Gulab Seva Foundation — No fees, no donations. Only service, trust, and humanity.</p>
-</footer>
-
-<script>
-// Modal open/close
-const openBtn = document.getElementById('openFormBtn');
-const closeBtn = document.getElementById('closeFormBtn');
-const modal = document.getElementById('formModal');
-openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
-closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
-modal.addEventListener('click', e => { if(e.target === modal) modal.classList.add('hidden'); });
-
-// Navbar mobile menu
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-// Navbar Join buttons
-document.getElementById('navJoinBtn').addEventListener('click', () => modal.classList.remove('hidden'));
-document.getElementById('mobileJoinBtn').addEventListener('click', () => modal.classList.remove('hidden'));
-document.getElementById('floatingJoinBtn').addEventListener('click', () => modal.classList.remove('hidden'));
-
-// Floating bar fade in
-window.addEventListener('load', () => { document.getElementById('floatingBar').style.opacity = 1; });
-
-// Particles
-particlesJS('particles-js', {
-  "particles": { "number": { "value":50,"density":{"enable":true,"value_area":800} },
-    "color":{"value":"#FF9933"}, "shape":{"type":"circle"},
-    "opacity":{"value":0.3,"random":true}, "size":{"value":3,"random":true},
-    "line_linked":{"enable":true,"distance":150,"color":"#FF9933","opacity":0.2,"width":1},
-    "move":{"enable":true,"speed":1,"direction":"none","random":true,"straight":false,"out_mode":"out"}
-  },
-  "interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false},"onclick":{"enable":false},"resize":true}},
-  "retina_detect":true
-});
-</script>
+  <script>
+    document.getElementById("fab").addEventListener("click", function() {
+      this.classList.toggle("active");
+    });
+  </script>
 
 </body>
 </html>
